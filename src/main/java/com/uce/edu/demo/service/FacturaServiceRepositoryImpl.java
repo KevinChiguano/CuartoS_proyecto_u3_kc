@@ -35,13 +35,13 @@ public class FacturaServiceRepositoryImpl implements IFacturaService{
 	@Override
 	public List<Factura> buscarFacturaJoinWhere() {
 		// TODO Auto-generated method stub
-		return null;
+		return this.facturaRepository.buscarFacturaJoinWhere();
 	}
 
 	@Override
 	public List<Factura> buscarFacturaFetchJoin() {
 		// TODO Auto-generated method stub
-		return null;
+		return this.facturaRepository.buscarFacturaFetchJoin();
 	}
 
 }

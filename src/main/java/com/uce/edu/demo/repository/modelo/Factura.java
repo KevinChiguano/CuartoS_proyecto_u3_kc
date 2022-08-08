@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -28,14 +29,16 @@ public class Factura {
 	@Column(name = "fact_numero")
 	private String numero;
 	
-	@OneToMany(mappedBy = "factura")
+	@OneToMany(mappedBy = "factura", fetch = FetchType.LAZY)
 	List<DetalleFactura> detalles;
 
 	
 	
+	
+
 	@Override
 	public String toString() {
-		return "Factura [id=" + id + ", fecha=" + fecha + ", numero=" + numero + ", detalles=" + detalles + "]";
+		return "Factura [id=" + id + ", fecha=" + fecha + ", numero=" + numero + "]";
 	}
 
 	//SET y GET

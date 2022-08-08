@@ -1,5 +1,6 @@
 package com.uce.edu.demo.repository;
 
+import java.util.Iterator;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -48,13 +49,22 @@ public class IFacturaReposiotryimpl implements IFacturaRepository{
 	@Override
 	public List<Factura> buscarFacturaJoinWhere() {
 		// TODO Auto-generated method stub
-		return null;
+		
+		TypedQuery<Factura> myQuery = this.entityManager.createQuery("SELECT f FROM Factura f, DetalleFactura d WHERE f = d.factura", Factura.class);
+		
+		List<Factura> facturas = myQuery.getResultList();
+		for(Factura f : facturas) {
+			f.getDetalles().size();
+		}
+		
+		return facturas;
 	}
 
 	@Override
 	public List<Factura> buscarFacturaFetchJoin() {
 		// TODO Auto-generated method stub
-		return null;
+		TypedQuery<Factura> myQuery = this.entityManager.createQuery("SELECT f FROM Factura f JOIN FETCH f.detalles d", Factura.class);
+		return myQuery.getResultList();
 	}
 
 }
