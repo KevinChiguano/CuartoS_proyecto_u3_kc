@@ -59,5 +59,11 @@ public class TransferenciaServiceImpl implements ITransferenciaService {
 		// TODO Auto-generated method stub
 		this.realizarTransferencia(ctaOrigen, ctaDestino, monto);
 	}
+	
+	@Override
+    public Transferencia buscar(Integer id) {
+        // TODO Auto-generated method stub
+        return this.transferenciaRepository.buscar(id);
+    }
 
 }

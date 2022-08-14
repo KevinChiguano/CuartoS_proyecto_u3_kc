@@ -14,6 +14,14 @@ public interface IHotelRepository {
 	public List<Hotel> buscarHotelJoinWhere(String tipoHabitacion);
 	public List<Hotel> buscarHotelFetchJoin(String tipoHabitacion);
 	
+	public void eliminar(Integer id);
+	public Hotel buscar(Integer id);
+	
+	public List<Hotel> buscarTodos();
+
+    public Hotel insertar(Hotel hotel);
+
+    public Hotel actualizar(Hotel hotel);
 	
 	
 }

@@ -22,5 +22,11 @@ public class TransferenciaRepositoryImpl implements ITransferenciaRepository {
 		// TODO Auto-generated method stub
 		this.entityManager.persist(transferencia);
 	}
+	
+	@Override
+    public Transferencia buscar(Integer id) {
+        // TODO Auto-generated method stub
+        return this.entityManager.find(Transferencia.class, id);
+    }
 
 }
