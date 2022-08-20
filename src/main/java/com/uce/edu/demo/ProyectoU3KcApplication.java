@@ -50,7 +50,7 @@ public class ProyectoU3KcApplication implements CommandLineRunner {
 			}
 		}*/
 		
-		//this.transferenciaService.realizarTransferenciaFachada("345345", "12312312", new BigDecimal(1));
+		this.transferenciaService.realizarTransferenciaFachada("345345", "12312312", new BigDecimal(1));
 		
 		
 	}

@@ -25,7 +25,6 @@ import com.uce.edu.demo.repository.modelo.Hotel;
 import com.uce.edu.demo.service.IHotelService;
 
 @SpringBootTest
-//@AutoConfigureTestDatabase(replace = Replace.NONE)//indica que me haga las operaciones a la base de datos real
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @Rollback(true)
 @Transactional
@@ -97,16 +96,5 @@ class Impl2Test {
         assertThat(hotelActualizado.getId()).isEqualTo(id);//confirmo si el proidcuto actulizado
     }
 
-    /*@Test
-    @Order(4)
-    public void  testbuscarHotelLeftOuterJoin()  {
-        LOG.info("Test buscarHotelLeftOuterJoin hotel 4");
-        List<Hotel> hoteles = this.hotelRepo.buscarHotelOuterJoinLeft("Familiar");
-        for(Hotel hotel: hoteles) {
-            System.out.println(hotel);
-        }
-
-        assertThat(hoteles).size().isGreaterThan(0);//si el tamño de la lista es mayor que cero
-    }*/
 
 }
