@@ -8,6 +8,9 @@ public class MainInterfacesFuncionales {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		
+		ConsumoMetodosHighOrder metodosHO = new ConsumoMetodosHighOrder();
+		
 		//SUPPLIER
 		
 		//clases
@@ -24,31 +27,72 @@ public class MainInterfacesFuncionales {
 		IPersonaSupplier<String> supplierLambdaTE = () -> "Daniel TE2";
 		LOGGER.info("Supplier Lambda: "+supplierLambda.getNombre());
 		
+		//Metodos High Order
+		String valorHO = metodosHO.consumirSupplier(()->"Hola mundo");
+		LOGGER.info("HO Supplier "+ valorHO);
+		
+		String valorHO1 = metodosHO.consumirSupplier(()->{
+			String valorConsultado = "17128383";
+			return valorConsultado;
+			});
+		LOGGER.info("HO Supplier "+ valorHO1);
+		
 		//CONSUMER
 		
 		//clases
 		IPersonaConsumer<String> consumerClase = new PersonaConsumerImpl();
 		consumerClase.accept("Prueba Consumer");
 		
+		//lambdas
 		IPersonaConsumer<String> consumerLambda = cadena -> System.out.println(cadena);
 		consumerLambda.accept("Prueba Consumer Lambda");
 		
-		//lambdas
+		//Metodos High Order
+		metodosHO.consumirConsumer(valor -> System.out.println(valor), 2);
+		
 		
 		//PREDICATE
 		
 		//clases
 		//lambdas
+		IPersonaPredicate<String> predicateLambda = cadena -> cadena.contains("Z");
+		LOGGER.info("Predicate Lambdas: "+predicateLambda.evaluar("Kevin con Z"));
+		
+		//Metodos High Order
+		boolean respuesta = metodosHO.consumirPredicate(cadena -> cadena.contains("A"), "Kevin con Z");
+		LOGGER.info("HO Predicate "+respuesta);
 		
 		//FUNCTION
 		
 		//clases
 		//lambdas
+		IPersonaFunction<Integer, String> functionLambda = cadena -> {
+			Integer valor = Integer.parseInt(cadena);
+			Integer valorFinal = valor-2;
+			return valorFinal;
+			};
+		
+		LOGGER.info("Function Lambdas: "+ functionLambda.aplicar("7"));
+		
+		//Metodos High Order
+		String valorFinalHO = metodosHO.consumirFunction(valor -> {
+			String retorn = valor.toString()+"A";
+			return retorn;
+		}, 1);
+		
+		LOGGER.info("HO Function: "+valorFinalHO);
 		
 		//UNARY OPERATOR (FUNCTION)
 		
 		//clases
 		//lambdas
+		
+		IPersonaUnaryOperator<String> unaryLambda = cade -> {
+			String valorFinal = cade.concat(" sufijo");
+			return valorFinal;
+		};
+		
+		LOGGER.info("Unari Operator Lamda: "+ unaryLambda.apply("Daniel"));
 	}
 
 }

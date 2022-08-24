@@ -35,7 +35,7 @@ public class FacturaSuper {
 	@JoinColumn(name = "fact_clie_id")
 	private ClienteSuper cliente;
 
-	@OneToMany(mappedBy = "factura")
+	@OneToMany(mappedBy = "factura", cascade = CascadeType.ALL)
 	private List<DetalleFacturaSuper> detalles;
 
 	//GET y SET
