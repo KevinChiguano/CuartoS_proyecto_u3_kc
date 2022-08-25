@@ -85,7 +85,8 @@ public class FacturaServiceImpl implements IFacturaService {
 			deta.setFactura(fact);
 			
 			ProductoSuper producto = this.productoRepository.buscarPorCodigoBarra(codigoProd);
-			deta.setSubtotal(deta.getProducto().getPrecio());
+			deta.setProducto(producto);
+			deta.setSubtotal(producto.getPrecio());
 			totalPagar.add(deta.getSubtotal());
 			producto.setStock(producto.getStock()-deta.getCantidad());
 			this.productoRepository.actualizar(producto);

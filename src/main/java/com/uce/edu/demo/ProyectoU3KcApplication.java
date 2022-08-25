@@ -99,14 +99,14 @@ public class ProyectoU3KcApplication implements CommandLineRunner {
 		factura2.setCliente(cliente2);
 		this.facturaService.insertar(factura2);*/
 		
-		/*List<String> codigos = new ArrayList<>();
+		List<String> codigos = new ArrayList<>();
 		codigos.add("0123456");
 		codigos.add("0789456");
 		codigos.add("0789123");
 		this.compraService.compraProductos("123456", "00001", codigos);
-		*/
-		List<Hotel> listaHotelesLeftHotels = this.hotelService.buscarHotelOuterJoinLeft();
-		listaHotelesLeftHotels.forEach(hotel -> System.out.println("Hotel: "+hotel.getNombre()));
+		
+		//List<Hotel> listaHotelesLeftHotels = this.hotelService.buscarHotelOuterJoinLeft();
+		//listaHotelesLeftHotels.forEach(hotel -> System.out.println("Hotel: "+hotel.getNombre()));
 	}
 
 }
