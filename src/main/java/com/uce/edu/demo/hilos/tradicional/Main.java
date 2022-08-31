@@ -9,14 +9,19 @@ public class Main {
 		
 		long tiempoInicial = System.currentTimeMillis();
 		
-		Cajero cajero1 = new Cajero("Kevin", Arrays.asList("Pepito", "Juan", "Daniela", "Pedro"));
-		Cajero cajero2 = new Cajero("Luis", Arrays.asList("Pepito2", "Juan2", "Daniela2"));
+		System.out.println("Nombre Hilo: "+Thread.currentThread().getName());
+		Cajero cajero1 = new Cajero("Kevin", Arrays.asList("Pepito", "Juan"));
+		Cajero cajero2 = new Cajero("Luis", Arrays.asList("Pepito2", "Juan2"));
 		Cajero cajero3 = new Cajero("Paul", Arrays.asList("Pepito3", "Juan3"));
 		
 		PCCajero gestorAtencion = new PCCajero();
 		gestorAtencion.procesar(cajero1);
-		gestorAtencion.procesar(cajero2);
-		gestorAtencion.procesar(cajero3);
+		
+		PCCajero gestorAtencion1 = new PCCajero();
+		gestorAtencion1.procesar(cajero2);
+		
+		PCCajero gestorAtencion2 = new PCCajero();
+		gestorAtencion2.procesar(cajero3);
 		
 		long tiempoFinal = System.currentTimeMillis();
 		
