@@ -127,6 +127,7 @@ public class MainInterfacesFuncionales {
 			return cadena;
 		});
 		
+		
 		//Declarativa: ideas/inteciones
 		listaCambiada.forEach(valor -> imprimir(valor));
 		
